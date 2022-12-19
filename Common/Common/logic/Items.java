@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class Items  implements Serializable{
 
-	private  String productID ;
-	private String Amount;
-	private String Price;
 	private static final long serialVersionUID = 1L;
-	public Items(String productid, String amount, String price) {
-		super();
-		productID = productid;
-		Amount = amount;
-		Price = price;
+	private String productID ;
+	private String amount;
+	private String price;
+	
+	public Items(String productID, String amount, String price) {
+		this.productID = productID;
+		this.amount = amount;
+		this.price = price;
 	}
 
 	public String getProductID() {
@@ -24,24 +24,24 @@ public class Items  implements Serializable{
 	}
 
 	public String getAmount() {
-		return Amount;
+		return amount;
 	}
 
 	public void setAmount(String amount) {
-		Amount = amount;
+		this.amount = amount;
 	}
 
 	public String getPrice() {
-		return Price;
+		return price;
 	}
 
 	public void setPrice(String price) {
-		Price = price;
+		this.price = price;
 	}
 
 	@Override
 	public String toString() {
-		return "Items [productID=" + productID + ", Amount=" + Amount + ", Price=" + Price + "]";
+		return "Items [productID=" + productID + ", Amount=" + amount + ", Price=" + price + "]";
 	}
 	
 	
