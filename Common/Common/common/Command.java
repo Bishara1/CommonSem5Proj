@@ -41,17 +41,81 @@ public enum Command {
 	//----------------------------------------------------------------
 	
 	ReadMachines {
-		public String GetAll() {
-			return "Select * from machines";
-		}
-		
-		public String GetSpecificMachine(int machine_id) {
-			return "Select * from machines WHERE machine_id = " + machine_id;
-		}
-		
 		@Override
 		public String toString() {
 			return "Read Machines";
 		}
+	},
+	
+	ReadUsers {
+		@Override
+		public String toString() {
+			return "Read Users";
+		}
+	},
+	
+	ReadDeliveries {
+		@Override
+		public String toString() {
+			return "Read Deliveries";
+		}
+	},
+	
+	ReadOrders {
+		@Override
+		public String toString() {
+			return "Read Orders";
+		}
+	},
+	
+	ReadRequests {
+		@Override
+		public String toString() {
+			return "Read Requests";
+		}
 	};
+	
+	public String GetQuery() {
+		switch(this) {
+			case ReadMachines:
+				return "SELECT * FROM machines";
+			
+			case ReadUsers:
+				return "SELECT * FROM users";
+			
+			case ReadOrders:
+				return "SELECT * FROM orders";
+			
+			case ReadRequests:
+				return "SELECT * FROM requests";
+			
+			case ReadDeliveries:
+				return "SELECT * FROM delivery";
+			
+			default:
+				return "Illegal Command";
+		}
+	}
+	
+	public String GetID() {
+		switch(this) {
+			case ReadMachines:
+				return "machine_id";
+			
+			case ReadUsers:
+				return "ID";
+			
+			case ReadOrders:
+				return "order_number";
+			
+			case ReadRequests:
+				return "request_id";
+			
+			case ReadDeliveries:
+				return "delivery_id";
+			
+			default:
+				return "Illegal Command";
+		}
+	}
 }
