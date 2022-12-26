@@ -2,14 +2,14 @@ package logic;
 
 import java.io.Serializable;
 
-public class Items  implements Serializable{
+public class Item implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private String productID ;
 	private String amount;
 	private String price;
 	
-	public Items(String productID, String amount, String price) {
+	public Item(String productID, String amount, String price) {
 		this.productID = productID;
 		this.amount = amount;
 		this.price = price;
