@@ -18,12 +18,24 @@ public class Request {
 		return request_id;
 	}
 
+	public void setRequest_id(int request_id) {
+		this.request_id = request_id;
+	}
+
 	public int getCustomer_id() {
 		return customer_id;
 	}
 
+	public void setCustomer_id(int customer_id) {
+		this.customer_id = customer_id;
+	}
+
 	public String getType() {
 		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 }
 

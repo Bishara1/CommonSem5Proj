@@ -9,9 +9,14 @@ public class Subscriber implements Serializable {
 	
 
 	private static final long serialVersionUID = 1L;
-	private String Fname, LName, id, PhoneNum, Email, Visa, SubNum,UserName,Password;
+	private String Fname, LName, PhoneNum, Email, Visa, UserName, Password, Role;
+	private int id, SubNum;
+	
+	public Subscriber() {
+		
+	}
 
-	public Subscriber(String fname, String lName, String Id, String phoneNum, String email, String visa, String subNum,String username,String password) {
+	public Subscriber(String fname, String lName, int Id, String phoneNum, String email, String visa, int subNum,String username,String password, String role) {
 		super();
 		Fname = fname;
 		LName = lName;
@@ -22,13 +27,14 @@ public class Subscriber implements Serializable {
 		SubNum = subNum;
 		UserName = username;
 		Password = password;
+		Role = role;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 	
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
@@ -72,11 +78,11 @@ public class Subscriber implements Serializable {
 		Visa = visa;
 	}
 	
-	public String getSubNum() {
+	public int getSubNum() {
 		return SubNum;
 	}
 	
-	public void setSubNum(String subNum) {
+	public void setSubNum(int subNum) {
 		SubNum = subNum;
 	}
 	public String getUserName() {
@@ -93,6 +99,14 @@ public class Subscriber implements Serializable {
 
 	public void setPassword(String password) {
 		Password = password;
+	}
+	
+	public String getRole() {
+		return Role;
+	}
+
+	public void setRole(String role) {
+		Role = role;
 	}
 	
 	@Override
