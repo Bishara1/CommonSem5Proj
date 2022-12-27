@@ -1,8 +1,10 @@
 package logic;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Delivery {
+public class Delivery implements Serializable {
+	private static final long serialVersionUID = 1L;
 	int delivery_id, order_id;
 	Date shipping_date, estimated_dleivery;
 	String status;

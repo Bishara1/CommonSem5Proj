@@ -1,20 +1,26 @@
 package logic;
 
-public class Machine {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Machine implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private int machine_id, threshold, total_inventory;
-	private String location, items, amount_per_item;
+	private String location, allItems, amount_per_item;
+	private ArrayList<String> items;
 	
 	public Machine() {
 		
 	}
 	
-	public Machine(int machine_id, int threshold, int total_inventory, String location, String items, String amount_per_item) {
+	public Machine(int machine_id, int threshold, int total_inventory, String location, String allItems, String amount_per_item) {
 		this.machine_id = machine_id;
 		this.threshold = threshold;
 		this.total_inventory = total_inventory;
 		this.location = location;
-		this.items = items;
+		this.allItems = allItems;
 		this.amount_per_item = amount_per_item;
+		items = new ArrayList<>(this.total_inventory);
 	}
 
 	public int getMachine_id() {
@@ -49,12 +55,22 @@ public class Machine {
 		this.location = location;
 	}
 
-	public String getItems() {
-		return items;
+	public String getAllItems() {
+		return allItems;
 	}
 
-	public void setItems(String items) {
-		this.items = items;
+	public void setAllItems(String items) {
+		if (!allItems.equals(items)) {
+			this.allItems = items;
+			String[] splitItems = allItems.split(",");
+			for (String item : splitItems) 
+				this.items.add(item);
+//			System.out.println(this.items.toString());
+		}
+	}
+	
+	public void getItem(int index) {
+		
 	}
 
 	public String getAmount_per_item() {

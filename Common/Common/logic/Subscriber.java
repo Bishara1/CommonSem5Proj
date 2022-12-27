@@ -6,8 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Subscriber implements Serializable {
-	
-
 	private static final long serialVersionUID = 1L;
 	private String Fname, LName, PhoneNum, Email, Visa, UserName, Password, Role;
 	private int id, SubNum;
