@@ -7,7 +7,7 @@ public class Machine implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int machine_id, threshold, total_inventory;
 	private String location, allItems, amount_per_item;
-	private ArrayList<String> items;
+	private String[] items;
 	
 	public Machine() {
 		
@@ -20,7 +20,7 @@ public class Machine implements Serializable {
 		this.location = location;
 		this.allItems = allItems;
 		this.amount_per_item = amount_per_item;
-		items = new ArrayList<>(this.total_inventory);
+		items = new String[this.total_inventory];
 	}
 
 	public int getMachine_id() {
@@ -60,13 +60,8 @@ public class Machine implements Serializable {
 	}
 
 	public void setAllItems(String items) {
-		if (!allItems.equals(items)) {
-			this.allItems = items;
-			String[] splitItems = allItems.split(",");
-			for (String item : splitItems) 
-				this.items.add(item);
-//			System.out.println(this.items.toString());
-		}
+		this.allItems = items;
+		this.items = allItems.split(",");
 	}
 	
 	public void getItem(int index) {
