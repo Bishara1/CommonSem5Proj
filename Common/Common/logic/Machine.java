@@ -8,6 +8,7 @@ public class Machine implements Serializable {
 	private int machine_id, threshold, total_inventory;
 	private String location, allItems, amount_per_item;
 	private ArrayList<String> items;
+	private ArrayList<Integer> amount;
 	
 	public Machine() {
 		
@@ -20,7 +21,6 @@ public class Machine implements Serializable {
 		this.location = location;
 		this.allItems = allItems;
 		this.amount_per_item = amount_per_item;
-		items = new ArrayList<>(this.total_inventory);
 	}
 
 	public int getMachine_id() {
@@ -60,17 +60,21 @@ public class Machine implements Serializable {
 	}
 
 	public void setAllItems(String items) {
-		if (!allItems.equals(items)) {
-			this.allItems = items;
-			String[] splitItems = allItems.split(",");
-			for (String item : splitItems) 
-				this.items.add(item);
-//			System.out.println(this.items.toString());
-		}
+		this.allItems = items;
+		this.items = new ArrayList<>(this.total_inventory);
+		
+		String[] splitItems = allItems.split(",");
+		for (String item : splitItems)
+			this.items.add(item);
 	}
 	
-	public void getItem(int index) {
-		
+	public String getItem(int index) {
+		return this.items.get(index);
+	}
+	
+	public ArrayList<String> getItems()
+	{
+		return this.items;
 	}
 
 	public String getAmount_per_item() {
@@ -80,7 +84,19 @@ public class Machine implements Serializable {
 	public void setAmount_per_item(String amount_per_item) {
 		this.amount_per_item = amount_per_item;
 	}
+	
+	public ArrayList<Integer> getAmount()
+	{
+		String[] splitItems = amount_per_item.split(",");
+		this.amount = new ArrayList<>(splitItems.length);
+		if(this.amount_per_item.equals(null))
+			return null;
+		for (String item : splitItems)
+			this.amount.add(Integer.parseInt(item));
+		return amount;
+	}
 
+	
 	
 	// items and amount per item split
 }
