@@ -73,6 +73,13 @@ public enum Command {
 		public String toString() {
 			return "Read Requests";
 		}
+	},
+	
+	ReadItems {
+		@Override
+		public String toString() {
+			return "Read Items";
+		}
 	};
 	
 	public String GetQuery() {
@@ -91,6 +98,9 @@ public enum Command {
 			
 			case ReadDeliveries:
 				return "SELECT * FROM delivery";
+				
+			case ReadItems:
+				return "SELECT * FROM items";
 			
 			default:
 				return "Illegal Command";
@@ -113,6 +123,9 @@ public enum Command {
 			
 			case ReadDeliveries:
 				return "delivery_id";
+				
+			case ReadItems:
+				return "name";
 			
 			default:
 				return "Illegal Command";

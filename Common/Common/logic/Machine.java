@@ -84,17 +84,21 @@ public class Machine implements Serializable {
 
 	public void setAmount_per_item(String amount_per_item) {
 		this.amount_per_item = amount_per_item;
-	}
-	
-	public ArrayList<Integer> getAmount()
-	{
 		String[] splitItems = amount_per_item.split(",");
 		this.amount = new ArrayList<>(splitItems.length);
-		if(this.amount_per_item.equals(null))
-			return null;
 		for (String item : splitItems)
 			this.amount.add(Integer.parseInt(item));
+	}
+	
+	public ArrayList<Integer> getAmountItems()
+	{
 		return amount;
+	}
+	
+	public int getAmount(int index)
+	{
+		return amount.get(index);
+		
 	}
 
 	
