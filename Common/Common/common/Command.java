@@ -80,6 +80,13 @@ public enum Command {
 		public String toString() {
 			return "Read Items";
 		}
+	},
+	
+	ReadLocations{
+		@Override
+		public String toString() {
+			return "Read Location";
+		}
 	};
 	
 	public String GetQuery() {
@@ -101,6 +108,9 @@ public enum Command {
 				
 			case ReadItems:
 				return "SELECT * FROM items";
+				
+			case ReadLocations:
+				return "SELECT * FROM location";
 			
 			default:
 				return "Illegal Command";
@@ -125,6 +135,9 @@ public enum Command {
 				return "delivery_id";
 				
 			case ReadItems:
+				return "name";
+				
+			case ReadLocations:
 				return "name";
 			
 			default:
