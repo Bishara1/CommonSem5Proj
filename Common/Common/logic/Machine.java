@@ -70,6 +70,7 @@ public class Machine implements Serializable {
 	
 	public String getItem(int index) {
 		return this.items.get(index);
+
 	}
 	
 	public ArrayList<String> getItems()
