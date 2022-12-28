@@ -7,12 +7,16 @@ public class Item implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String productID ;
 	private String amount;
-	private String price;
+	private int price;
 	
-	public Item(String productID, String amount, String price) {
+	public Item(String productID, String amount, int price) {
 		this.productID = productID;
 		this.amount = amount;
 		this.price = price;
+	}
+
+	public Item() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getProductID() {
@@ -31,11 +35,11 @@ public class Item implements Serializable{
 		this.amount = amount;
 	}
 
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
