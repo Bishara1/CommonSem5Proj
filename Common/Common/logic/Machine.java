@@ -73,6 +73,16 @@ public class Machine implements Serializable {
 
 	}
 	
+	public boolean existItem(String name) {
+		for(String item : items)
+		{
+			if(name.equals(item))
+				return true;
+		}
+		return false;
+
+	}
+	
 	public ArrayList<String> getItems()
 	{
 		return this.items;
