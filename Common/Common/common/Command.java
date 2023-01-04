@@ -29,7 +29,7 @@ public enum Command {
 		}
 	},
 	
-	DatabaseWrite {
+	InsertUser {
 		@Override
 		public String toString() {
 			return "Database Write";
