@@ -5,7 +5,7 @@ import java.sql.Date;
 
 public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int order_num, customer_id, price;
+	private int order_num, customer_id, price, machine_id;
 	private String order_status, location, items_in_order, supply_method;
 	private Date order_created, confirmation_date;
 	
@@ -14,7 +14,7 @@ public class Order implements Serializable {
 	}
 
 	public Order(int order_num, int customer_id, int price, String order_status, String location, String items_in_order,
-			String supply_method, Date order_created, Date confirmation_date) {
+			String supply_method, Date order_created, Date confirmation_date, int machine_id) {
 		super();
 		this.order_num = order_num;
 		this.customer_id = customer_id;
@@ -25,6 +25,7 @@ public class Order implements Serializable {
 		this.supply_method = supply_method;
 		this.order_created = order_created;
 		this.confirmation_date = confirmation_date;
+		this.machine_id = machine_id;
 	}
 
 	public int getOrder_num() {
@@ -97,5 +98,13 @@ public class Order implements Serializable {
 
 	public void setConfirmation_date(Date confirmation_date) {
 		this.confirmation_date = confirmation_date;
+	}
+
+	public int getMachine_id() {
+		return machine_id;
+	}
+
+	public void setMachine_id(int machine_id) {
+		this.machine_id = machine_id;
 	}
 }
