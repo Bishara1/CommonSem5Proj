@@ -139,7 +139,7 @@ public enum Command {
 				
 			case ReadLocations:
 				return "name";
-			
+				
 			default:
 				return "Illegal Command";
 		}
