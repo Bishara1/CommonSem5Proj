@@ -32,7 +32,14 @@ public enum Command {
 	InsertUser {
 		@Override
 		public String toString() {
-			return "Database Write";
+			return "Insert User";
+		}
+	},
+	
+	InsertOrder {
+		@Override
+		public String toString() {
+			return "Insert Order";
 		}
 	},
 	
@@ -111,6 +118,7 @@ public enum Command {
 				
 			case ReadLocations:
 				return "SELECT * FROM location";
+			
 			
 			default:
 				return "Illegal Command";
