@@ -29,10 +29,24 @@ public enum Command {
 		}
 	},
 	
-	DatabaseWrite {
+	InsertUser {
 		@Override
 		public String toString() {
-			return "Database Write";
+			return "Insert User";
+		}
+	},
+	
+	InsertOrder {
+		@Override
+		public String toString() {
+			return "Insert Order";
+		}
+	},
+	// Leen change here
+	InsertOrderReport {
+		@Override
+		public String toString() {
+			return "Insert Order Report";
 		}
 	},
 	
@@ -68,6 +82,13 @@ public enum Command {
 		}
 	},
 	
+	UpdateOrders {
+		@Override
+		public String toString() {
+			return "Update Orders";
+		}
+	},
+	
 	ReadRequests {
 		@Override
 		public String toString() {
@@ -86,6 +107,13 @@ public enum Command {
 		@Override
 		public String toString() {
 			return "Read Location";
+		}
+	},
+	
+	ReadOrdersReports{
+		@Override
+		public String toString() {
+			return "Read Order reports";
 		}
 	};
 	
@@ -111,6 +139,9 @@ public enum Command {
 				
 			case ReadLocations:
 				return "SELECT * FROM location";
+				
+			case ReadOrdersReports:
+				return "SELECT * FROM ordersreport";
 			
 			default:
 				return "Illegal Command";
@@ -139,7 +170,13 @@ public enum Command {
 				
 			case ReadLocations:
 				return "name";
-			
+				
+			case ReadOrdersReports:
+				return "report_id";
+				
+			case InsertOrderReport:
+				return "report_id";
+				
 			default:
 				return "Illegal Command";
 		}
