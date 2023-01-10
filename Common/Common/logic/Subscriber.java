@@ -9,13 +9,12 @@ public class Subscriber implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String Fname, LName, PhoneNum, Email, Visa, UserName, Password, Role;
 	private int id, SubNum;
-	private int Is_new_subscriber;
 	
 	public Subscriber() {
 		
 	}
 
-	public Subscriber(String fname, String lName, int Id, String phoneNum, String email, String visa, int subNum,String username,String password, String role,int is_new_subscriber) {
+	public Subscriber(String fname, String lName, int Id, String phoneNum, String email, String visa, int subNum,String username,String password, String role) {
 		super();
 		Fname = fname;
 		LName = lName;
@@ -27,18 +26,6 @@ public class Subscriber implements Serializable {
 		UserName = username;
 		Password = password;
 		Role = role;
-		Is_new_subscriber = is_new_subscriber;
-	
-	}
-	
-	
-
-	public int getIs_new_subscriber() {
-		return Is_new_subscriber;
-	}
-
-	public void setIs_new_subscriber(int is_new_subscriber) {
-		Is_new_subscriber = is_new_subscriber;
 	}
 
 	public int getId() {

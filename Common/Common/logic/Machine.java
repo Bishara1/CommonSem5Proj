@@ -14,7 +14,6 @@ public class Machine implements Serializable {
 		
 	}
 	
-	
 	public Machine(int machine_id, int threshold, int total_inventory, String location, String allItems, String amount_per_item) {
 		this.machine_id = machine_id;
 		this.threshold = threshold;
