@@ -123,6 +123,13 @@ public enum Command {
 		public String toString() {
 			return "Read Order reports";
 		}
+	},
+	
+	UpdateMachineStock{
+		@Override
+		public String toString() {
+			return "Update Machine Stock";
+		}
 	};
 	
 	public String GetQuery() {
@@ -150,6 +157,9 @@ public enum Command {
 				
 			case ReadOrdersReports:
 				return "SELECT * FROM ordersreport";
+			
+			case UpdateMachineStock:
+				return "UPDATE machines SET amount_per_item = ?? WHERE machine_id = ??"; 
 			
 			default:
 				return "Illegal Command";
