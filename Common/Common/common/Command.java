@@ -42,13 +42,21 @@ public enum Command {
 			return "Insert Order";
 		}
 	},
-	// Leen change here
+
 	InsertOrderReport {
 		@Override
 		public String toString() {
 			return "Insert Order Report";
 		}
 	},
+	
+	InsertInventoryReport{
+		@Override
+		public String toString() {
+			return "Insert Inventory Report";
+		}
+	},
+	
 	
 	//----------------------------------------------------------------
 	//SQL query enums
@@ -179,9 +187,11 @@ public enum Command {
 			case ReadOrdersReports:
 				return "report_id";
 				
-				// leen says safwan thanks np cuh
 			case InsertOrderReport:
 				return "report_id";
+				
+			case InsertInventoryReport:
+				return "machine_id";
 				
 			default:
 				return "Illegal Command";
