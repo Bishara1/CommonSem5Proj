@@ -29,12 +29,34 @@ public enum Command {
 		}
 	},
 	
-	DatabaseWrite {
+	InsertUser {
 		@Override
 		public String toString() {
-			return "Database Write";
+			return "Insert User";
 		}
 	},
+	
+	InsertOrder {
+		@Override
+		public String toString() {
+			return "Insert Order";
+		}
+	},
+
+	InsertOrderReport {
+		@Override
+		public String toString() {
+			return "Insert Order Report";
+		}
+	},
+	
+	InsertInventoryReport{
+		@Override
+		public String toString() {
+			return "Insert Inventory Report";
+		}
+	},
+	
 	
 	//----------------------------------------------------------------
 	//SQL query enums
@@ -68,6 +90,13 @@ public enum Command {
 		}
 	},
 	
+	UpdateOrders {
+		@Override
+		public String toString() {
+			return "Update Orders";
+		}
+	},
+	
 	ReadRequests {
 		@Override
 		public String toString() {
@@ -86,6 +115,20 @@ public enum Command {
 		@Override
 		public String toString() {
 			return "Read Location";
+		}
+	},
+	
+	ReadOrdersReports{
+		@Override
+		public String toString() {
+			return "Read Order reports";
+		}
+	},
+	
+	UpdateMachineStock{
+		@Override
+		public String toString() {
+			return "Update Machine Stock";
 		}
 	};
 	
@@ -111,6 +154,12 @@ public enum Command {
 				
 			case ReadLocations:
 				return "SELECT * FROM location";
+				
+			case ReadOrdersReports:
+				return "SELECT * FROM ordersreport";
+			
+			case UpdateMachineStock:
+				return "UPDATE machines SET amount_per_item = ?? WHERE machine_id = ??"; 
 			
 			default:
 				return "Illegal Command";
@@ -139,7 +188,16 @@ public enum Command {
 				
 			case ReadLocations:
 				return "name";
-			
+				
+			case ReadOrdersReports:
+				return "report_id";
+				
+			case InsertOrderReport:
+				return "report_id";
+				
+			case InsertInventoryReport:
+				return "machine_id";
+				
 			default:
 				return "Illegal Command";
 		}

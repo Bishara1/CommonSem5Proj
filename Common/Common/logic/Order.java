@@ -7,14 +7,12 @@ public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int order_num, customer_id, price, machine_id;
 	private String order_status, location, items_in_order, supply_method;
-	private Date order_created, confirmation_date;
+	private Date order_created;
 	
-	public Order() {
-		
-	}
+	public Order() { }
 
 	public Order(int order_num, int customer_id, int price, String order_status, String location, String items_in_order,
-			String supply_method, Date order_created, Date confirmation_date, int machine_id) {
+			String supply_method, Date order_created, int machine_id) {
 		super();
 		this.order_num = order_num;
 		this.customer_id = customer_id;
@@ -24,7 +22,6 @@ public class Order implements Serializable {
 		this.items_in_order = items_in_order;
 		this.supply_method = supply_method;
 		this.order_created = order_created;
-		this.confirmation_date = confirmation_date;
 		this.machine_id = machine_id;
 	}
 
@@ -92,16 +89,27 @@ public class Order implements Serializable {
 		this.order_created = order_created;
 	}
 
-	public Date getConfirmation_date() {
-		return confirmation_date;
-	}
-
-	public void setConfirmation_date(Date confirmation_date) {
-		this.confirmation_date = confirmation_date;
-	}
-
 	public void setMachine_id(int machine_id) {
-		this.machine_id = machine_id;// TODO Auto-generated method stub
-		
+		this.machine_id = machine_id;
 	}
+	
+	public int getMachine_id() {
+		return this.machine_id;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Order temp;
+		if (obj == null)
+			return false;
+		
+		if (obj.getClass() == this.getClass()) {
+			temp = (Order)obj;
+			if (temp.getOrder_num() == this.getOrder_num() && temp.getItems_in_order().equals(this.getItems_in_order())
+					&& temp.getCustomer_id() == this.getCustomer_id())
+				return true;
+		}
+		
+		return false;
+	}	
 }
