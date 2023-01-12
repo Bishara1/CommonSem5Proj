@@ -1,16 +1,16 @@
 .root{
-    -fx-background-color: #c14302;
+    -fx-background-color: #f2e6cf;
 }
 
 .table-view{
-   -fx-background-color:  #FEF5EA;
+   -fx-background-color:  #f2e6cf;
    -fx-border-color:  #c99531
    -fx-border-width:
    -fx-padding: 2 0 2 10px;
 }
 
 .table-view:focused{
-    -fx-background-color: #c14302;
+    -fx-background-color: #faf1ba;
 	   -fx-border-color:  #c99531
    -fx-border-width: 10
 }
@@ -19,12 +19,12 @@
 }
 
 .table-view .column-header-background{
-    -fx-background-color: #c14302;
+    -fx-background-color: #efc36c;
 }
 
 .table-view .column-header-background .label{
     -fx-background-color: transparent;
-	  -fx-text-fill: white;
+	  -fx-text-fill: #7c6435;
 }
 
 .table-view .column-header {
