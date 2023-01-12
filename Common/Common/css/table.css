@@ -5,8 +5,8 @@
 .table-view{
    -fx-background-color:  #FEF5EA;
    -fx-border-color:  #c99531
-   -fx-border-width: 
-   -fx-padding: 2 0 2 10px
+   -fx-border-width:
+   -fx-padding: 2 0 2 10px;
 }
 
 .table-view:focused{

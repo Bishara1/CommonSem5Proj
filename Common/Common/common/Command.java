@@ -130,6 +130,48 @@ public enum Command {
 		public String toString() {
 			return "Update Machine Stock";
 		}
+	},
+	
+	UpdateDeliveries {
+		@Override
+		public String toString() {
+			return "Update Deliveries Table";
+		}
+	},
+	
+	ReadExternalTable {
+		@Override
+		public String toString() {
+			return "Read External Table";
+		}
+	},
+	
+	EKTConnect {
+		@Override
+		public String toString() {
+			return "EKT Connect";
+		}
+	}, 
+	
+	ReadStockRequests {
+		@Override
+		public String toString() {
+			return "Read Stock Requests";
+		}
+	},
+	
+	InsertStockRequest{
+		@Override
+		public String toString() {
+			return "Insert Stock Request";
+		}
+	},
+	
+	UpdateStockRequest{
+		@Override
+		public String toString() {
+			return "Update Stock Request";
+		}
 	};
 	
 	public String GetQuery() {
@@ -149,6 +191,9 @@ public enum Command {
 			case ReadDeliveries:
 				return "SELECT * FROM delivery";
 				
+			case ReadExternalTable:
+				return "SELECT * FROM externaluserstable";
+				
 			case ReadItems:
 				return "SELECT * FROM items";
 				
@@ -160,6 +205,9 @@ public enum Command {
 			
 			case UpdateMachineStock:
 				return "UPDATE machines SET amount_per_item = ?? WHERE machine_id = ??"; 
+				
+			case ReadStockRequests:
+				return "SELECT * FROM stockrequests";
 			
 			default:
 				return "Illegal Command";
@@ -197,6 +245,12 @@ public enum Command {
 				
 			case InsertInventoryReport:
 				return "machine_id";
+				
+			case InsertStockRequest:
+				return "stock_request_id";
+				
+			case ReadStockRequests:
+				return "stock_request_id";
 				
 			default:
 				return "Illegal Command";
