@@ -83,8 +83,7 @@ public class Machine implements Serializable {
 
 	}
 	
-	public ArrayList<String> getItems()
-	{
+	public ArrayList<String> getItems() {
 		return this.items;
 	}
 
@@ -100,15 +99,12 @@ public class Machine implements Serializable {
 			this.amount.add(Integer.parseInt(item));
 	}
 	
-	public ArrayList<Integer> getAmountItems()
-	{
+	public ArrayList<Integer> getAmountItems() {
 		return amount;
 	}
 	
-	public int getAmount(int index)
-	{
+	public int getAmount(int index) {
 		return amount.get(index);
-		
 	}
 
 	

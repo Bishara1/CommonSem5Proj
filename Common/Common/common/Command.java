@@ -125,7 +125,14 @@ public enum Command {
 		}
 	},
 	
-	UpdateMachineStock{
+	UpdateMachine {
+		@Override
+		public String toString() {
+			return "Update Machine";
+		}
+	},
+	
+	UpdateMachineStock {
 		@Override
 		public String toString() {
 			return "Update Machine Stock";
@@ -204,10 +211,11 @@ public enum Command {
 				return "SELECT * FROM ordersreport";
 			
 			case UpdateMachineStock:
-				return "UPDATE machines SET amount_per_item = ?? WHERE machine_id = ??"; 
+				return "UPDATE machines SET amount_per_item = ?, items = ?, total_inventory = ? WHERE machine_id = ?"; 
 				
 			case ReadStockRequests:
 				return "SELECT * FROM stockrequests";
+		
 			
 			default:
 				return "Illegal Command";

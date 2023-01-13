@@ -7,11 +7,11 @@ public class Delivery implements Serializable {
 	private static final long serialVersionUID = 1L;
 	int delivery_id, order_id, customer_id, total_price;
 	Date shipping_date, estimated_delivery;
-	String status, location;
+	String status, location, address;
 	
 	public Delivery() { }
 	
-	public Delivery(int delivery_id, int order_id, int customer_id, Date shipping_date, Date estimated_delivery, String status, int total_price, String location) {
+	public Delivery(int delivery_id, int order_id, int customer_id, Date shipping_date, Date estimated_delivery, String status, int total_price, String location, String address) {
 		this.delivery_id = delivery_id;
 		this.order_id = order_id;
 		this.customer_id = customer_id;
@@ -20,10 +20,19 @@ public class Delivery implements Serializable {
 		this.status = status;
 		this.total_price = total_price;
 		this.location = location;
+		this.address = address;
 	}
 
 	public int getDelivery_id() {
 		return delivery_id;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public void setDelivery_id(int delivery_id) {
