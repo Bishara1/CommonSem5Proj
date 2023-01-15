@@ -6,23 +6,34 @@ import java.sql.Date;
 public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int order_num, customer_id, price, machine_id;
-	private String order_status, location, items_in_order, supply_method;
+	private String order_status, location, credit_card_number, items_in_order, supply_method;
 	private Date order_created;
 	
 	public Order() { }
 
-	public Order(int order_num, int customer_id, int price, String order_status, String location, String items_in_order,
-			String supply_method, Date order_created, int machine_id) {
+	public Order(int order_num, int customer_id, int price, String order_status, String location,String credit_card_number, 
+			String items_in_order, String supply_method, Date order_created, int machine_id) {
 		super();
 		this.order_num = order_num;
 		this.customer_id = customer_id;
 		this.price = price;
 		this.order_status = order_status;
 		this.location = location;
+		this.credit_card_number = credit_card_number;
 		this.items_in_order = items_in_order;
 		this.supply_method = supply_method;
 		this.order_created = order_created;
 		this.machine_id = machine_id;
+	}
+	
+	
+
+	public String getCredit_card_number() {
+		return credit_card_number;
+	}
+
+	public void setCredit_card_number(String credit_card_number) {
+		this.credit_card_number = credit_card_number;
 	}
 
 	public int getOrder_num() {

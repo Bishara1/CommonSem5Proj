@@ -2,17 +2,12 @@ package logic;
 
 import java.io.Serializable;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 public class Subscriber implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String Fname, LName, PhoneNum, Email, Visa, UserName, Password, Role;
 	private int id, SubNum, Is_new_subscriber;
 	
-	public Subscriber() {
-		
-	}
+	public Subscriber() { }
 
 	public Subscriber(String fname, String lName, int Id, String phoneNum, String email, String visa, int subNum,String username,String password, String role,int is_new_subscriber) {
 		super();
@@ -121,5 +116,20 @@ public class Subscriber implements Serializable {
 	@Override
 	public String toString() {
 		return this.Fname + " " + this.LName + " " + this.id + " " + this.Email + " " + this.PhoneNum + " " + this.Visa + " " + this.SubNum +" "+ this.UserName+" "+ this.Password;
+	}
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		
+		if (obj.getClass() == this.getClass()) {
+			Subscriber other = (Subscriber)obj;
+			if (other.getId() == this.id && this.UserName == other.getUserName())
+				return true;
+		}
+		
+		return false;
 	}
 }

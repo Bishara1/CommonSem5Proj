@@ -1,24 +1,27 @@
 package logic;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 public class StockRequest implements Serializable{
+
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	private int stock_request_id,machine_id;
-	private String status;
-	private Date resolved_date;
+	private String items_to_fill,status;
 	
-	public StockRequest() { }
-
-	public StockRequest(int stock_request_id,int machine_id,String status, Date resolved_date)
+	public StockRequest(int stock_request_id,int machine_id,String items_to_fill,String status)
 	{
 		this.stock_request_id = stock_request_id;
 		this.machine_id = machine_id;
+		this.items_to_fill = items_to_fill;
 		this.status = status;
-		this.resolved_date = resolved_date;
 	}
 
+	public StockRequest() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public int getStock_request_id() {
 		return stock_request_id;
@@ -36,6 +39,14 @@ public class StockRequest implements Serializable{
 		this.machine_id = machine_id;
 	}
 
+	public String getItems_to_fill() {
+		return items_to_fill;
+	}
+
+	public void setItems_to_fill(String items_to_fill) {
+		this.items_to_fill = items_to_fill;
+	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -44,17 +55,10 @@ public class StockRequest implements Serializable{
 		this.status = status;
 	}
 	
-	public Date getResolved_date() {
-		return resolved_date;
-	}
-
-	public void setResolved_date(Date resolved_date) {
-		this.resolved_date = resolved_date;
-	}
-	
 	@Override 
 	public String toString()
 	{
-		return "Stock Request : " + this.machine_id;
+		return "Stock Request : " + this.machine_id + " -> " + this.items_to_fill;
 	}
+
 }

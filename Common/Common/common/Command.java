@@ -8,6 +8,13 @@ public enum Command {
 		}
 	},
 	
+	EKTConnect{
+		@Override
+		public String toString() {
+			return " EKT Connect";
+		}
+	},
+	
 	Disconnect {
 		@Override
 		public String toString() {
@@ -22,6 +29,20 @@ public enum Command {
 		}
 	},
 	
+	UpdateDiscount{
+		@Override
+		public String toString() {
+			return "Update Discount";
+		}
+	},
+	
+	UpdateRequest{
+		@Override
+		public String toString() {
+			return "Update request";
+		}
+	},
+	
 	DatabaseRead{
 		@Override
 		public String toString() {
@@ -33,6 +54,13 @@ public enum Command {
 		@Override
 		public String toString() {
 			return "Insert User";
+		}
+	},
+
+	InsertRequest{
+		@Override
+		public String toString() {
+			return "Insert request";
 		}
 	},
 	
@@ -97,6 +125,15 @@ public enum Command {
 		}
 	},
 	
+	UpdateOrderSupplyMethod {
+		@Override
+		public String toString()
+		{
+			return "Update Order Supply Method";
+		}
+	},
+	
+	
 	ReadRequests {
 		@Override
 		public String toString() {
@@ -125,20 +162,6 @@ public enum Command {
 		}
 	},
 	
-	UpdateMachine {
-		@Override
-		public String toString() {
-			return "Update Machine";
-		}
-	},
-	
-	UpdateMachineStock {
-		@Override
-		public String toString() {
-			return "Update Machine Stock";
-		}
-	},
-	
 	UpdateDeliveries {
 		@Override
 		public String toString() {
@@ -146,24 +169,32 @@ public enum Command {
 		}
 	},
 	
-	ReadExternalTable {
+	UpdateUsers{
+		
 		@Override
 		public String toString() {
-			return "Read External Table";
+			return "update users";
 		}
 	},
 	
-	EKTConnect {
+	ReadUserVisa{
 		@Override
 		public String toString() {
-			return "EKT Connect";
+			return "Read User Visa";
 		}
-	}, 
+	},
 	
-	ReadStockRequests {
+	UpdateMachineStock{
 		@Override
 		public String toString() {
-			return "Read Stock Requests";
+			return "Update Machine Stock";
+		}
+	},
+	
+	UpdateMachineThreshold{
+		@Override
+		public String toString() {
+			return "Update Machine Threshold";
 		}
 	},
 	
@@ -179,6 +210,49 @@ public enum Command {
 		public String toString() {
 			return "Update Stock Request";
 		}
+	},
+	
+	ReadExternalTable {
+		@Override
+		public String toString() {
+			return "Read External Table";
+		}
+	},
+	
+	UpdateUserFirstCart{
+		@Override
+		public String toString()
+		{
+			return "Update User First Cart";
+		}
+	},
+	
+	InsertDelivery{
+		@Override
+		public String toString() {
+			return "Insert Delivery";
+		}
+	},
+	
+	InsertUsersReport{
+		@Override
+		public String toString() {
+			return "Insert User Report";
+		}
+	},
+	
+	ReadStockRequests{
+		@Override
+		public String toString() {
+			return "Read Stock Request";
+		}
+	},
+	
+	ReadInventoryReports{
+		@Override
+		public String toString() {
+			return "Read Inventory reports";
+		}
 	};
 	
 	public String GetQuery() {
@@ -188,6 +262,9 @@ public enum Command {
 			
 			case ReadUsers:
 				return "SELECT * FROM users";
+				
+			case ReadUserVisa:
+				return "SELECT credit_card_number FROM users";
 			
 			case ReadOrders:
 				return "SELECT * FROM orders";
@@ -198,9 +275,6 @@ public enum Command {
 			case ReadDeliveries:
 				return "SELECT * FROM delivery";
 				
-			case ReadExternalTable:
-				return "SELECT * FROM externaluserstable";
-				
 			case ReadItems:
 				return "SELECT * FROM items";
 				
@@ -209,13 +283,21 @@ public enum Command {
 				
 			case ReadOrdersReports:
 				return "SELECT * FROM ordersreport";
+				
+			case ReadExternalTable:
+				return "SELECT * FROM externaluserstable";
 			
 			case UpdateMachineStock:
-				return "UPDATE machines SET amount_per_item = ?, items = ?, total_inventory = ? WHERE machine_id = ?"; 
+				return "UPDATE machines SET amount_per_item = ?, items = ?, total_inventory = ? WHERE machine_id = ?";
+				
+			case UpdateMachineThreshold:
+				return "UPDATE machines SET threshold = ?? WHERE machine_id = ??"; 
 				
 			case ReadStockRequests:
 				return "SELECT * FROM stockrequests";
-		
+				
+			case ReadInventoryReports:
+				return "SELECT * FROM inventoryreport";
 			
 			default:
 				return "Illegal Command";
@@ -229,7 +311,10 @@ public enum Command {
 			
 			case ReadUsers:
 				return "ID";
-			
+				
+			case ReadUserVisa:
+				return "ID";
+				
 			case ReadOrders:
 				return "order_number";
 			
@@ -254,11 +339,26 @@ public enum Command {
 			case InsertInventoryReport:
 				return "machine_id";
 				
+			case InsertUsersReport:
+				return "report_id";
+			
 			case InsertStockRequest:
 				return "stock_request_id";
 				
 			case ReadStockRequests:
 				return "stock_request_id";
+				
+			case ReadInventoryReports:
+				return "report_id";
+				
+			case InsertDelivery:
+				return "delivery_id";
+				
+			case InsertRequest:
+				return "request_id";
+				
+			case InsertUser:
+				return "subscriber_number";
 				
 			default:
 				return "Illegal Command";

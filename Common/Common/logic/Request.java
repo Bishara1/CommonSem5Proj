@@ -5,16 +5,25 @@ import java.io.Serializable;
 public class Request implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int request_id, customer_id;
-	private String type;
+	private String type, status;
 	
 	public Request() {
 		
 	}
 	
-	public Request(int request_id, int customer_id, String type) {
+	public Request(int request_id, int customer_id, String type,String status) {
 		this.request_id = request_id;
 		this.customer_id = customer_id;
 		this.type = type;
+		this.status = status;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public int getRequest_id() {
