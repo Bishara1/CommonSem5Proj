@@ -104,6 +104,13 @@ public enum Command {
 		}
 	},
 	
+	ReadUserReports{
+		@Override
+		public String toString() {
+			return "Read users reports";
+		}
+	},
+	
 	ReadDeliveries {
 		@Override
 		public String toString() {
@@ -299,6 +306,9 @@ public enum Command {
 			case ReadInventoryReports:
 				return "SELECT * FROM inventoryreport";
 			
+			case ReadUserReports:
+				return "SELECT * FROM usersreports";
+				
 			default:
 				return "Illegal Command";
 		}
@@ -349,6 +359,9 @@ public enum Command {
 				return "stock_request_id";
 				
 			case ReadInventoryReports:
+				return "report_id";
+				
+			case ReadUserReports:
 				return "report_id";
 				
 			case InsertDelivery:
