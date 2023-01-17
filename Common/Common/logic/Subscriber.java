@@ -126,7 +126,7 @@ public class Subscriber implements Serializable {
 		
 		if (obj.getClass() == this.getClass()) {
 			Subscriber other = (Subscriber)obj;
-			if (other.getId() == this.id && this.UserName == other.getUserName())
+			if (other.getId() == this.id)
 				return true;
 		}
 		

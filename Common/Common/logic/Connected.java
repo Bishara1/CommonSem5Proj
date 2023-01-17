@@ -7,11 +7,23 @@ public class Connected implements Serializable {
 	private String ip;
 	private String Host;
 	private String Status;
+	private int connectedUserID;
 	
-	public Connected(String ip, String Host, String Status) {
+	public Connected() { }
+
+	public Connected(String ip, String Host, String Status, int connectedUserID) {
 		this.ip = ip;
 		this.Host = Host;
 		this.Status = Status;
+		this.connectedUserID = connectedUserID;
+	}
+	
+	public int getConnectedUserID() {
+		return connectedUserID;
+	}
+
+	public void setConnectedUserID(int connectedUserID) {
+		this.connectedUserID = connectedUserID;
 	}
 	
 	public String getIp() {
@@ -37,8 +49,4 @@ public class Connected implements Serializable {
 	public void setStatus(String status) {
 		Status = status;
 	}
-
-	
-	
-     
 }
